@@ -41,9 +41,16 @@ header h1 {
 
 .input-group {
   display: flex;
-  justify-content: space-evenly;
+  flex-wrap: wrap;
+  justify-content: space-between;
   gap: 1.5rem;
 }
+
+.input-group > div {
+  flex: 1 1 calc(50% - 0.75rem); 
+  min-width: 10rem; 
+}
+
 
 #user-input label {
   display: block;
