@@ -1,49 +1,49 @@
-import { useState } from "react";
-
-export default function Userinput() {
-    const [field, setfield] = useState({
-        IntialInvestment: 10000,
-        AnnualInvestment: 1200,
-        expectedReturns: 6,
-        Duration: 12
-    }
-    );
-    function handleChange(aspect, newvalue) {
-        setfield(prevfield => {
-            return {
-                ...prevfield,
-                [aspect]: newvalue
-            }
-        });
-    }
+export default function Userinput({ field, onChange }) {
     return (
-        <section id="user-input">
-            <div className="input-group">
-                <p>
-                    <label>Intial Investment</label>
-                    <input type="number" required value={field.IntialInvestment}
-                        onChange={(event) => handleChange("IntialInvestment", event.target.value)}
-                    />
-                </p>
-                <p>
-                    <label>IAnnual Investment</label>
-                    <input type="number" required value={field.AnnualInvestment}
-                        onChange={(event) => handleChange("AnnualInvestment", event.target.value)}
-                    />
-                </p>
-                <p>
-                    <label>Expected Returns</label>
-                    <input type="number" required value={field.expectedReturns}
-                        onChange={(event) => handleChange("expectedReturns", event.target.value)}
-                    />
-                </p>
-                <p>
-                    <label>Duration</label>
-                    <input type="number" required value={field.Duration}
-                        onChange={(event) => handleChange("Duration", event.target.value)}
-                    />
-                </p>
-            </div>
-        </section>
+      <section id="user-input">
+        <div className="input-group">
+          <p>
+            <label htmlFor="initial-investment">Initial Investment</label>
+            <input
+              id="initial-investment"
+              type="number"
+              required
+              value={field.InitialInvestment}
+              onChange={(event) => onChange("InitialInvestment", +event.target.value)}
+            />
+          </p>
+          <p>
+            <label htmlFor="annual-investment">Annual Investment</label>
+            <input
+              id="annual-investment"
+              type="number"
+              required
+              value={field.AnnualInvestment}
+              onChange={(event) => onChange("AnnualInvestment", +event.target.value)}
+            />
+          </p>
+          <p>
+            <label htmlFor="expected-returns">Expected Returns (%)</label>
+            <input
+              id="expected-returns"
+              type="number"
+              required
+              value={field.expectedReturns}
+              onChange={(event) => onChange("expectedReturns", +event.target.value)}
+            />
+          </p>
+          <p>
+            <label htmlFor="duration">Duration (Years)</label>
+            <input
+              id="duration"
+              type="number"
+              required
+              value={field.Duration}
+              onChange={(event) => onChange("Duration", +event.target.value)}
+            />
+          </p>
+        </div>
+      </section>
     );
-}
+  }
+  
